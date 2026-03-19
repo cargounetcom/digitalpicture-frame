@@ -4,14 +4,14 @@ import { Separator } from "@/components/ui/separator"
 
 const footerLinks = {
   shop: {
-    title: "Shop",
+    title: "Themes",
     links: [
-      { name: "All Products", href: "#" },
-      { name: "Templates", href: "#" },
-      { name: "Plugins", href: "#" },
-      { name: "SaaS Solutions", href: "#" },
-      { name: "New Arrivals", href: "#" },
-      { name: "Sale", href: "#" },
+      { name: "All Themes", href: "#" },
+      { name: "Business", href: "#" },
+      { name: "eCommerce", href: "#" },
+      { name: "Blog & Magazine", href: "#" },
+      { name: "Portfolio", href: "#" },
+      { name: "Free Themes", href: "#" },
     ],
   },
   support: {
@@ -65,12 +65,12 @@ export function StoreFooter() {
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <Link href="/" className="flex items-center gap-2">
               <div className="h-10 w-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold">DF</span>
+                <span className="text-primary-foreground font-bold">TM</span>
               </div>
-              <span className="text-xl font-bold text-foreground">DigitalFrame</span>
+              <span className="text-xl font-bold text-foreground">ThemeMarket</span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground max-w-xs">
-              Premium digital products for developers and businesses. Templates, plugins, and SaaS solutions.
+              Premium WordPress themes for businesses, blogs, and online stores. Trusted by 50,000+ customers.
             </p>
             {/* Social links */}
             <div className="mt-6 flex items-center gap-3">
@@ -114,7 +114,7 @@ export function StoreFooter() {
         {/* Bottom footer */}
         <div className="py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} DigitalFrame. All rights reserved.
+            &copy; {new Date().getFullYear()} ThemeMarket. All rights reserved.
           </p>
           {/* Payment methods */}
           <div className="flex items-center gap-3">

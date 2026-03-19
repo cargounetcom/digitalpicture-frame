@@ -14,11 +14,11 @@ import {
 import { useCartStore } from "@/lib/cart-store"
 
 const navigation = [
-  { name: "All Products", href: "#" },
-  { name: "Templates", href: "#" },
-  { name: "Plugins", href: "#" },
-  { name: "SaaS", href: "#" },
-  { name: "Sale", href: "#" },
+  { name: "All Themes", href: "#" },
+  { name: "Business", href: "#" },
+  { name: "eCommerce", href: "#" },
+  { name: "Blog & Magazine", href: "#" },
+  { name: "Portfolio", href: "#" },
 ]
 
 export function StoreHeader() {
@@ -30,7 +30,7 @@ export function StoreHeader() {
     <header className="sticky top-0 z-50 w-full bg-card border-b border-border">
       {/* Announcement bar */}
       <div className="bg-primary text-primary-foreground text-center py-2 px-4 text-sm font-medium">
-        Free shipping on orders over $100 — Limited time offer
+        Spring Sale: 30% off all WordPress themes with code SPRING30
       </div>
       
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -47,7 +47,7 @@ export function StoreHeader() {
               <SheetContent side="left" className="w-80">
                 <div className="flex flex-col gap-6 pt-6">
                   <Link href="/" className="text-xl font-bold text-foreground">
-                    DigitalFrame
+                    ThemeMarket
                   </Link>
                   <nav className="flex flex-col gap-4">
                     {navigation.map((item) => (
@@ -69,10 +69,10 @@ export function StoreHeader() {
           <div className="flex lg:flex-1">
             <Link href="/" className="flex items-center gap-2">
               <div className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">DF</span>
+                <span className="text-primary-foreground font-bold text-sm">TM</span>
               </div>
               <span className="hidden sm:block text-xl font-bold text-foreground">
-                DigitalFrame
+                ThemeMarket
               </span>
             </Link>
           </div>

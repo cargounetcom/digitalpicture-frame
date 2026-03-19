@@ -76,7 +76,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <CardContent className="p-4">
         {/* Category */}
         <div className="text-xs font-medium text-primary uppercase tracking-wide mb-1">
-          {product.type}
+          {product.category}
         </div>
 
         {/* Title */}
@@ -89,15 +89,20 @@ export function ProductCard({ product }: ProductCardProps) {
           {product.description}
         </p>
 
-        {/* Rating */}
-        <div className="mt-3 flex items-center gap-2">
+        {/* Rating and Sales */}
+        <div className="mt-3 flex items-center gap-2 flex-wrap">
           <div className="flex items-center gap-1">
             <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
             <span className="text-sm font-medium text-foreground">{product.rating}</span>
           </div>
           <span className="text-sm text-muted-foreground">
-            ({product.reviews.toLocaleString()} reviews)
+            ({product.reviews.toLocaleString()})
           </span>
+          {product.sales && (
+            <span className="text-xs text-muted-foreground">
+              {product.sales.toLocaleString()} sales
+            </span>
+          )}
         </div>
 
         {/* Price */}

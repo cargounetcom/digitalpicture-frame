@@ -16,10 +16,10 @@ export function NewsletterSection() {
             <Mail className="h-7 w-7 text-primary-foreground" />
           </div>
           <h2 className="text-3xl font-bold text-primary-foreground">
-            Stay in the Loop
+            Join 50,000+ WordPress Developers
           </h2>
           <p className="mt-3 text-lg text-primary-foreground/80 max-w-xl mx-auto">
-            Subscribe to get exclusive deals, new product announcements, and tips delivered to your inbox.
+            Subscribe to get exclusive theme deals, WordPress tutorials, and new release announcements.
           </p>
           <form className="mt-8 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <Input

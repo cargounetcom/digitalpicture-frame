@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Digital Picture Frame Shop - Templates, Plugins & SaaS',
-  description: 'Discover premium templates, plugins, and SaaS solutions for your digital picture frame projects. Start building in seconds.',
+  title: 'ThemeMarket - Premium WordPress Themes & Templates',
+  description: 'Discover premium WordPress themes trusted by 50,000+ customers. Business, eCommerce, blog, and portfolio themes with lifetime updates and 24/7 support.',
   generator: 'v0.app',
   icons: {
     icon: [

@@ -17,14 +17,15 @@ const sortOptions = [
   { name: "Price: Low to High", value: "price-asc" },
   { name: "Price: High to Low", value: "price-desc" },
   { name: "Best Rating", value: "rating" },
-  { name: "Most Reviews", value: "reviews" },
+  { name: "Best Selling", value: "sales" },
 ]
 
 const filterTabs = [
-  { name: "All", value: "all" },
-  { name: "Templates", value: "template" },
-  { name: "Plugins", value: "plugin" },
-  { name: "SaaS", value: "saas" },
+  { name: "All Themes", value: "all" },
+  { name: "Business", value: "business" },
+  { name: "eCommerce", value: "ecommerce" },
+  { name: "Blog", value: "blog" },
+  { name: "Portfolio", value: "portfolio" },
 ]
 
 export function ProductGrid() {
@@ -33,7 +34,7 @@ export function ProductGrid() {
 
   const filteredProducts = products.filter((product) => {
     if (activeFilter === "all") return true
-    return product.type === activeFilter
+    return product.category === activeFilter
   })
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
@@ -44,8 +45,8 @@ export function ProductGrid() {
         return b.price - a.price
       case "rating":
         return b.rating - a.rating
-      case "reviews":
-        return b.reviews - a.reviews
+      case "sales":
+        return (b.sales || 0) - (a.sales || 0)
       default:
         return b.featured ? 1 : -1
     }
@@ -57,10 +58,10 @@ export function ProductGrid() {
         {/* Section header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-foreground">
-            Featured Products
+            Premium WordPress Themes
           </h2>
           <p className="mt-3 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Explore our bestselling templates, plugins, and SaaS solutions trusted by thousands of developers.
+            Explore our bestselling WordPress themes trusted by 50,000+ customers worldwide.
           </p>
         </div>
 
@@ -108,7 +109,7 @@ export function ProductGrid() {
 
         {/* Results count */}
         <p className="text-sm text-muted-foreground mb-6">
-          Showing {sortedProducts.length} products
+          Showing {sortedProducts.length} themes
         </p>
 
         {/* Product grid */}
@@ -121,7 +122,7 @@ export function ProductGrid() {
         {/* Load more */}
         <div className="mt-12 text-center">
           <Button variant="outline" size="lg">
-            Load More Products
+            Load More Themes
           </Button>
         </div>
       </div>
