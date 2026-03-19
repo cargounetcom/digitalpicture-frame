@@ -1,21 +1,25 @@
-import { Header } from '@/components/header'
-import { Hero } from '@/components/hero'
-import { TemplateGrid } from '@/components/template-grid'
-import { Footer } from '@/components/footer'
+import { StoreHeader } from "@/components/store-header"
+import { HeroBanner } from "@/components/hero-banner"
+import { CollectionsGrid } from "@/components/collections-grid"
+import { ProductGrid } from "@/components/product-grid"
+import { FeaturesSection } from "@/components/features-section"
+import { NewsletterSection } from "@/components/newsletter-section"
+import { StoreFooter } from "@/components/store-footer"
+import { CartDrawer } from "@/components/cart-drawer"
 
 export default function HomePage() {
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header />
-      <main className="flex-1">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Hero />
-          <TemplateGrid />
-        </div>
+    <div className="min-h-screen bg-background">
+      <StoreHeader />
+      <main>
+        <HeroBanner />
+        <FeaturesSection />
+        <CollectionsGrid />
+        <ProductGrid />
+        <NewsletterSection />
       </main>
-      <div className="mt-16">
-        <Footer />
-      </div>
+      <StoreFooter />
+      <CartDrawer />
     </div>
   )
 }
