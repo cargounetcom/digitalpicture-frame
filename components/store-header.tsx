@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Search, ShoppingBag, Menu, X, User, Heart } from "lucide-react"
+import { Search, ShoppingBag, Menu, X, User, Heart, Settings } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
@@ -132,6 +132,14 @@ export function StoreHeader() {
               <Heart className="h-5 w-5" />
               <span className="sr-only">Wishlist</span>
             </Button>
+
+            {/* Admin Panel */}
+            <Link href="/admin">
+              <Button variant="ghost" size="icon" title="Admin Panel">
+                <Settings className="h-5 w-5" />
+                <span className="sr-only">Admin Panel</span>
+              </Button>
+            </Link>
 
             {/* Account */}
             <Button variant="ghost" size="icon">
