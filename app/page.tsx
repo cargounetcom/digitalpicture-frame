@@ -1,93 +1,61 @@
-import { StoreHeader } from "@/components/store-header"
-import { HeroBanner } from "@/components/hero-banner"
-import { CollectionsGrid } from "@/components/collections-grid"
-import { ProductGrid } from "@/components/product-grid"
-import { FeaturesSection } from "@/components/features-section"
-import { NewsletterSection } from "@/components/newsletter-section"
-import { StoreFooter } from "@/components/store-footer"
-import { CartDrawer } from "@/components/cart-drawer"
-
-export default function HomePage() {
-  return (
-    <div className="min-h-screen bg-background">
-      <StoreHeader />
-      <main>
-        <HeroBanner />
-        <FeaturesSection />
-        <CollectionsGrid />
-        <ProductGrid />
-        <NewsletterSection />
-      </main>
-      <StoreFooter />
-      <CartDrawer />
-    </div>
-  )
-}
-import { Inter } from 'next/font/google';
-
-// Load the Inter font
-const inter = Inter({ subsets: ['latin'] });
-
-// Securely fetch products from WooCommerce API
+// Server Component - Fetches securely
 async function getProducts() {
-  const wpUrl = process.env.NEXT_PUBLIC_WP_URL;
-  const key = process.env.WC_CONSUMER_KEY;
-  const secret = process.env.WC_CONSUMER_SECRET;
-
-  const auth = Buffer.from(`${key}:${secret}`).toString('base64');
-
-  // Fetch from WP API. Next.js caches this and revalidates every 60 seconds (ISR)
-  const res = await fetch(`${wpUrl}/wp-json/wc/v3/products`, {
-    headers: {
-      Authorization: `Basic ${auth}`,
-    },
-    next: { revalidate: 60 }, 
+  const auth = Buffer.from(`${process.env.WC_CONSUMER_KEY}:${process.env.WC_CONSUMER_SECRET}`).toString('base64');
+  
+  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wc/v3/products`, {
+    headers: { Authorization: `Basic ${auth}` },
+    next: { revalidate: 60 }, // Cache updates every 60 seconds
   });
 
-  if (!res.ok) {
-    throw new Error('Failed to fetch products');
-  }
-
+  if (!res.ok) return [];
   return res.json();
 }
 
 export default async function Home() {
   const products = await getProducts();
-return (
-    <main className={`min-h-screen bg-gray-50 text-gray-900 ${inter.className}`}>
-      {/* Header Template */}
-      <header className="text-center py-16 bg-white shadow-sm mb-8">
-        <h1 className="text-4xl font-bold tracking-tight">Digital Picture Frames</h1>
-        <p className="mt-2 text-gray-500">Premium headless storefront.</p>
-      </header>
 
-      {/* Product Grid */}
-      <div className="max-w-6xl mx-auto px-4 pb-20">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+  return (
+    <main className="min-h-screen">
+      {/* Hero Section - Analog / Editorial Feel */}
+      <section className="max-w-7xl mx-auto px-8 py-24 text-center">
+        <p className="uppercase tracking-[0.3em] text-nordic-muted text-xs mb-6">The Analog Collection</p>
+        <h1 className="font-serif text-5xl md:text-7xl mb-8 leading-tight">
+          Digital Memories,<br/> Crafted in Wood.
+        </h1>
+        <button className="uppercase tracking-widest text-xs border border-nordic-text px-8 py-4 hover:bg-nordic-text hover:text-nordic-bg transition-all duration-300">
+          Discover Collection
+        </button>
+      </section>
+
+      {/* Product Grid - Minimalist */}
+      <section className="max-w-7xl mx-auto px-8 pb-32">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
           {products.map((product: any) => (
-            <div 
-              key={product.id} 
-              className="bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow p-5 flex flex-col"
-            >
-              <div className="aspect-square relative w-full mb-4 bg-gray-100 rounded-lg overflow-hidden">
-                {/* Note: In production, use Next.js <Image> and configure remote patterns */}
+            <div key={product.id} className="group cursor-pointer">
+              {/* Image Container with subtle overflow logic */}
+              <div className="bg-nordic-paper aspect-[4/5] relative w-full mb-6 overflow-hidden flex items-center justify-center p-8">
                 <img 
                   src={product.images[0]?.src || '/placeholder.jpg'} 
                   alt={product.name}
-                  className="object-cover w-full h-full"
+                  className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out"
                 />
               </div>
               
-              <h2 className="text-lg font-semibold mb-1" dangerouslySetInnerHTML={{ __html: product.name }} />
-              <p className="text-xl font-bold text-gray-700 mb-4">${product.price}</p>
-              
-              <button className="mt-auto w-full bg-black text-white font-semibold py-2 rounded-lg hover:bg-gray-800 transition-colors">
-                Add to Cart
-              </button>
+              {/* Text / Pricing */}
+              <div className="flex justify-between items-start">
+                <div>
+                  <h2 
+                    className="font-serif text-xl mb-1 group-hover:text-nordic-accent transition-colors"
+                    dangerouslySetInnerHTML={{ __html: product.name }} 
+                  />
+                  <p className="text-nordic-muted text-sm" dangerouslySetInnerHTML={{ __html: product.categories[0]?.name || 'Frame' }} />
+                </div>
+                <p className="font-sans font-medium">${product.price}</p>
+              </div>
             </div>
           ))}
         </div>
-      </div>
+      </section>
     </main>
   );
 }
