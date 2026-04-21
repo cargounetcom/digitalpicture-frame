@@ -43,6 +43,12 @@ export default async function Home() {
           </Link>
           <div className="flex gap-6 items-center">
             <Link 
+              href="/shop" 
+              className="text-xs uppercase tracking-widest text-gray-400 hover:text-pink-400 transition-colors"
+            >
+              Shop
+            </Link>
+            <Link 
               href="/collections" 
               className="text-xs uppercase tracking-widest text-gray-400 hover:text-cyan-400 transition-colors"
             >
