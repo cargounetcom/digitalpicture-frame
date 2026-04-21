@@ -13,7 +13,8 @@ import {
   LogOut,
   Database,
   Sparkles,
-  Type
+  Type,
+  Upload
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { AdminAuthProvider, useAdminAuth } from "@/lib/admin-auth"
@@ -27,6 +28,7 @@ const sidebarLinks = [
   { href: "/admin/customers", icon: Users, label: "Customers" },
   { href: "/admin/analytics", icon: BarChart3, label: "Analytics" },
   { href: "/admin/database", icon: Database, label: "WP Database" },
+  { href: "/admin/wc-export", icon: Upload, label: "WC Export" },
   { href: "/admin/ai", icon: Sparkles, label: "AI Studio" },
   { href: "/admin/fonts", icon: Type, label: "Fonts" },
   { href: "/admin/settings", icon: Settings, label: "Settings" },

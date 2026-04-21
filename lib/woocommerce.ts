@@ -141,3 +141,146 @@ export async function fetchAllWooProducts(): Promise<WooProduct[]> {
 
   return allProducts;
 }
+
+// Create a new product in WooCommerce
+export interface CreateWooProductData {
+  name: string;
+  type?: 'simple' | 'grouped' | 'external' | 'variable';
+  status?: 'draft' | 'pending' | 'private' | 'publish';
+  featured?: boolean;
+  catalog_visibility?: 'visible' | 'catalog' | 'search' | 'hidden';
+  description?: string;
+  short_description?: string;
+  sku?: string;
+  regular_price?: string;
+  sale_price?: string;
+  virtual?: boolean;
+  downloadable?: boolean;
+  categories?: Array<{ id?: number; name?: string; slug?: string }>;
+  tags?: Array<{ id?: number; name?: string; slug?: string }>;
+  images?: Array<{ src: string; name?: string; alt?: string }>;
+  attributes?: Array<{ name: string; options: string[]; visible?: boolean; variation?: boolean }>;
+  meta_data?: Array<{ key: string; value: string }>;
+}
+
+export async function createWooProduct(data: CreateWooProductData): Promise<WooProduct> {
+  const url = `${WP_URL}/wp-json/wc/v3/products`;
+  
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': getAuthHeader(),
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`WooCommerce API error: ${res.status} - ${errorText}`);
+  }
+
+  return res.json();
+}
+
+// Update an existing product in WooCommerce
+export async function updateWooProduct(id: number, data: Partial<CreateWooProductData>): Promise<WooProduct> {
+  const url = `${WP_URL}/wp-json/wc/v3/products/${id}`;
+  
+  const res = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Authorization': getAuthHeader(),
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`WooCommerce API error: ${res.status} - ${errorText}`);
+  }
+
+  return res.json();
+}
+
+// Delete a product from WooCommerce
+export async function deleteWooProduct(id: number, force: boolean = false): Promise<WooProduct> {
+  const url = `${WP_URL}/wp-json/wc/v3/products/${id}?force=${force}`;
+  
+  const res = await fetch(url, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': getAuthHeader(),
+    },
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`WooCommerce API error: ${res.status} - ${errorText}`);
+  }
+
+  return res.json();
+}
+
+// Batch create/update/delete products
+export interface BatchProductsData {
+  create?: CreateWooProductData[];
+  update?: Array<{ id: number } & Partial<CreateWooProductData>>;
+  delete?: number[];
+}
+
+export async function batchWooProducts(data: BatchProductsData): Promise<{
+  create: WooProduct[];
+  update: WooProduct[];
+  delete: WooProduct[];
+}> {
+  const url = `${WP_URL}/wp-json/wc/v3/products/batch`;
+  
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': getAuthHeader(),
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const errorText = await res.text();
+    throw new Error(`WooCommerce API error: ${res.status} - ${errorText}`);
+  }
+
+  return res.json();
+}
+
+// Create or get a category
+export async function createWooCategory(name: string, slug?: string, description?: string): Promise<WooCategory> {
+  const url = `${WP_URL}/wp-json/wc/v3/products/categories`;
+  
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Authorization': getAuthHeader(),
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name,
+      slug: slug || name.toLowerCase().replace(/\s+/g, '-'),
+      description: description || '',
+    }),
+  });
+
+  if (!res.ok) {
+    // If category exists, try to find it
+    if (res.status === 400) {
+      const categories = await fetchWooCategories();
+      const existing = categories.find(c => c.name.toLowerCase() === name.toLowerCase());
+      if (existing) return existing;
+    }
+    const errorText = await res.text();
+    throw new Error(`WooCommerce API error: ${res.status} - ${errorText}`);
+  }
+
+  return res.json();
+}
