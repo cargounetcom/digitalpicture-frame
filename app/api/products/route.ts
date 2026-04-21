@@ -1,24 +1,36 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
+import { fetchWooProducts, fetchAllWooProducts } from '@/lib/woocommerce';
 
-export async function GET() {
-  const wpUrl = process.env.NEXT_PUBLIC_WP_URL;
-  const key = process.env.WC_CONSUMER_KEY;
-  const secret = process.env.WC_CONSUMER_SECRET;
-
-  const auth = Buffer.from(`${key}:${secret}`).toString('base64');
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const all = searchParams.get('all') === 'true';
+  const perPage = parseInt(searchParams.get('per_page') || '10');
+  const page = parseInt(searchParams.get('page') || '1');
+  const category = searchParams.get('category') || undefined;
 
   try {
-    const res = await fetch(`${wpUrl}/wp-json/wc/v3/products`, {
-      headers: {
-        Authorization: `Basic ${auth}`,
-      },
-    });
-
-    const data = await res.json();
+    let products;
     
-    // Send data to frontend
-    return NextResponse.json(data, { status: 200 });
+    if (all) {
+      products = await fetchAllWooProducts();
+    } else {
+      products = await fetchWooProducts({
+        per_page: perPage,
+        page,
+        category,
+      });
+    }
+    
+    return NextResponse.json({
+      success: true,
+      count: products.length,
+      products,
+    }, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch API' }, { status: 500 });
+    console.error('WooCommerce API error:', error);
+    return NextResponse.json({ 
+      success: false,
+      error: error instanceof Error ? error.message : 'Failed to fetch products from WooCommerce' 
+    }, { status: 500 });
   }
 }
