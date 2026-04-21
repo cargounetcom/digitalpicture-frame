@@ -10,7 +10,10 @@ import {
   BarChart3,
   Users,
   ShoppingCart,
-  LogOut
+  LogOut,
+  Database,
+  Sparkles,
+  Type
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { AdminAuthProvider, useAdminAuth } from "@/lib/admin-auth"
@@ -23,6 +26,9 @@ const sidebarLinks = [
   { href: "/admin/orders", icon: ShoppingCart, label: "Orders" },
   { href: "/admin/customers", icon: Users, label: "Customers" },
   { href: "/admin/analytics", icon: BarChart3, label: "Analytics" },
+  { href: "/admin/database", icon: Database, label: "WP Database" },
+  { href: "/admin/ai", icon: Sparkles, label: "AI Studio" },
+  { href: "/admin/fonts", icon: Type, label: "Fonts" },
   { href: "/admin/settings", icon: Settings, label: "Settings" },
 ]
 
