@@ -4,13 +4,22 @@ import Link from 'next/link';
 async function getProducts() {
   const auth = Buffer.from(`${process.env.WC_CONSUMER_KEY}:${process.env.WC_CONSUMER_SECRET}`).toString('base64');
   
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL || 'https://wp.digitalpictureframe.shop'}/wp-json/wc/v3/products`, {
-    headers: { Authorization: `Basic ${auth}` },
-    next: { revalidate: 60 },
-  });
+  // Fix URL: remove www. prefix and trailing slash
+  let wpUrl = process.env.NEXT_PUBLIC_WP_URL || 'https://wp.digitalpictureframe.shop';
+  wpUrl = wpUrl.replace('www.wp.', 'wp.').replace(/\/$/, '');
+  
+  try {
+    const res = await fetch(`${wpUrl}/wp-json/wc/v3/products`, {
+      headers: { Authorization: `Basic ${auth}` },
+      next: { revalidate: 60 },
+    });
 
-  if (!res.ok) return [];
-  return res.json();
+    if (!res.ok) return [];
+    return res.json();
+  } catch (error) {
+    console.error('[v0] WooCommerce fetch error:', error);
+    return [];
+  }
 }
 
 export default async function Home() {
@@ -38,6 +47,12 @@ export default async function Home() {
               className="text-xs uppercase tracking-widest text-gray-400 hover:text-cyan-400 transition-colors"
             >
               Collections
+            </Link>
+            <Link 
+              href="/dashboard/generator" 
+              className="text-xs uppercase tracking-widest text-gray-400 hover:text-purple-400 transition-colors"
+            >
+              AI Generator
             </Link>
             <Link 
               href="/woo-export" 

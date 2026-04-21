@@ -1,4 +1,6 @@
-const WP_URL = (process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://wp.digitalpictureframe.shop').replace(/\/$/, '');
+const WP_URL = (process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://wp.digitalpictureframe.shop')
+  .replace('www.wp.', 'wp.')
+  .replace(/\/$/, '');
 
 // WordPress REST API helper
 export async function fetchWordPress(endpoint: string, options?: RequestInit) {

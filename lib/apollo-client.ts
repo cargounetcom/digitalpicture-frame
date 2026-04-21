@@ -1,6 +1,8 @@
 import { ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 
-const WP_URL = process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://wp.digitalpictureframe.shop';
+const WP_URL = (process.env.NEXT_PUBLIC_WORDPRESS_URL || 'https://wp.digitalpictureframe.shop')
+  .replace('www.wp.', 'wp.')
+  .replace(/\/$/, '');
 
 const httpLink = createHttpLink({
   uri: `${WP_URL}/graphql`,
