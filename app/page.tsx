@@ -49,16 +49,16 @@ export default async function Home() {
               Collections
             </Link>
             <Link 
+              href="/dashboard" 
+              className="text-xs uppercase tracking-widest text-gray-400 hover:text-green-400 transition-colors"
+            >
+              Dashboard
+            </Link>
+            <Link 
               href="/dashboard/generator" 
               className="text-xs uppercase tracking-widest text-gray-400 hover:text-purple-400 transition-colors"
             >
               AI Generator
-            </Link>
-            <Link 
-              href="/woo-export" 
-              className="text-xs uppercase tracking-widest text-gray-400 hover:text-cyan-400 transition-colors"
-            >
-              WooCommerce Export
             </Link>
             <Link 
               href="/admin" 
