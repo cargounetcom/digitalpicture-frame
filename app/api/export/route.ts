@@ -21,7 +21,7 @@ export async function GET() {
       title: p.name,
       price: p.price,
       currency: "USD",
-      url: `https://www.digitalpictureframe.shop/product/${p.slug}`,
+      url: `https://www.wp.digitalpictureframe.shop/product/${p.slug}`,
       image_url: p.images[0]?.src || "",
       stock_status: p.stock_status,
     }));
