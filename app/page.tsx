@@ -1,10 +1,12 @@
+import Link from 'next/link';
+
 // Server Component - Fetches securely
 async function getProducts() {
   const auth = Buffer.from(`${process.env.WC_CONSUMER_KEY}:${process.env.WC_CONSUMER_SECRET}`).toString('base64');
   
   const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wc/v3/products`, {
     headers: { Authorization: `Basic ${auth}` },
-    next: { revalidate: 60 }, // Cache updates every 60 seconds
+    next: { revalidate: 60 },
   });
 
   if (!res.ok) return [];
@@ -15,78 +17,31 @@ export default async function Home() {
   const products = await getProducts();
 
   return (
-    <main className="min-h-screen">
-      {/* Hero Section - Analog / Editorial Feel */}
-      <section className="max-w-7xl mx-auto px-8 py-24 text-center">
-        <p className="uppercase tracking-[0.3em] text-nordic-muted text-xs mb-6">The Analog Collection</p>
-        <h1 className="font-serif text-5xl md:text-7xl mb-8 leading-tight">
-          Digital Memories,<br/> Crafted in Wood.
-        </h1>
-        <button className="uppercase tracking-widest text-xs border border-nordic-text px-8 py-4 hover:bg-nordic-text hover:text-nordic-bg transition-all duration-300">
-          Discover Collection
-        </button>
-      </section>
-
-      {/* Product Grid - Minimalist */}
-      <section className="max-w-7xl mx-auto px-8 pb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
-          {products.map((product: any) => (
-            <div key={product.id} className="group cursor-pointer">
-              {/* Image Container with subtle overflow logic */}
-              <div className="bg-nordic-paper aspect-[4/5] relative w-full mb-6 overflow-hidden flex items-center justify-center p-8">
-                <img 
-                  src={product.images[0]?.src || '/placeholder.jpg'} 
-                  alt={product.name}
-                  className="object-contain w-full h-full group-hover:scale-105 transition-transform duration-700 ease-in-out"
-                />
-              </div>
-              
-              {/* Text / Pricing */}
-              <div className="flex justify-between items-start">
-                <div>
-                  <h2 
-                    className="font-serif text-xl mb-1 group-hover:text-nordic-accent transition-colors"
-                    dangerouslySetInnerHTML={{ __html: product.name }} 
-                  />
-                  <p className="text-nordic-muted text-sm" dangerouslySetInnerHTML={{ __html: product.categories[0]?.name || 'Frame' }} />
-                </div>
-                <p className="font-sans font-medium">${product.price}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-    </main>
-  );
-}
-async function getWooCommerceProducts() {
-  const auth = Buffer.from(`${process.env.WC_CONSUMER_KEY}:${process.env.WC_CONSUMER_SECRET}`).toString('base64');
-  
-  // Use your actual wp.digitalpictureframe.shop URL here
-  const res = await fetch(`${process.env.NEXT_PUBLIC_WP_URL}/wp-json/wc/v3/products`, {
-    headers: { Authorization: `Basic ${auth}` },
-    next: { revalidate: 60 }, 
-  });
-
-  if (!res.ok) return[];
-  return res.json();
-}
-
-export default async function Home() {
-  const products = await getWooCommerceProducts();
-
-  return (
     <main className="relative min-h-screen pt-32 pb-20">
       
       {/* --- BACKGROUND GLOW EFFECTS (Aurora & Ember) --- */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        {/* Aurora Cyan/Purple Glow */}
         <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-aurora-cyan/20 rounded-full blur-[120px] animate-aurora-shift mix-blend-screen"></div>
         <div className="absolute top-[20%] right-[-10%] w-[600px] h-[600px] bg-aurora-purple/10 rounded-full blur-[150px] animate-aurora-shift mix-blend-screen" style={{ animationDelay: '2s' }}></div>
-        
-        {/* Ember Orange Glow */}
         <div className="absolute bottom-[-20%] left-[20%] w-[800px] h-[400px] bg-ember-flame/15 rounded-full blur-[150px] animate-ember-pulse mix-blend-screen"></div>
       </div>
+
+      {/* --- ADMIN NAV BAR --- */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-cyber-surface/60 backdrop-blur-xl border-b border-white/5">
+        <div className="max-w-7xl mx-auto px-8 py-4 flex justify-between items-center">
+          <Link href="/" className="font-serif text-xl text-white">
+            Digital Picture Frame
+          </Link>
+          <div className="flex gap-6 items-center">
+            <Link 
+              href="/woo-export" 
+              className="text-xs uppercase tracking-widest text-gray-400 hover:text-aurora-cyan transition-colors"
+            >
+              WooCommerce Export
+            </Link>
+          </div>
+        </div>
+      </nav>
 
       {/* --- HERO SECTION --- */}
       <section className="relative z-10 max-w-7xl mx-auto px-8 py-24 text-center">
@@ -124,7 +79,7 @@ export default async function Home() {
                     src={product.images[0]?.src || '/placeholder.jpg'} 
                     alt={product.name}
                     className="object-cover w-full h-full group-hover:scale-110 group-hover:opacity-80 transition-all duration-700 ease-out"
-                    style={{ filter: 'contrast(1.1) brightness(0.9)' }} // Gives images that moody, dark-nordic look
+                    style={{ filter: 'contrast(1.1) brightness(0.9)' }}
                   />
                   
                   {/* Cyber UI overlay elements */}
