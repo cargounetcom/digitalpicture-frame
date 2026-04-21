@@ -1,6 +1,6 @@
 import 'server-only';
 
-const WP_URL = process.env.NEXT_PUBLIC_WP_URL;
+const WP_URL = (process.env.NEXT_PUBLIC_WP_URL || 'https://wp.digitalpictureframe.shop').replace(/\/$/, '');
 const WC_KEY = process.env.WC_CONSUMER_KEY;
 const WC_SECRET = process.env.WC_CONSUMER_SECRET;
 
