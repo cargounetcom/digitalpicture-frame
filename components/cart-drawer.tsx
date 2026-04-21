@@ -1,5 +1,6 @@
 "use client"
 
+import { useRouter } from "next/navigation"
 import { Minus, Plus, ShoppingBag, Trash2, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"
@@ -12,6 +13,7 @@ import {
 import { useCartStore } from "@/lib/cart-store"
 
 export function CartDrawer() {
+  const router = useRouter()
   const {
     items,
     isOpen,
@@ -23,6 +25,19 @@ export function CartDrawer() {
   } = useCartStore()
 
   const total = getTotal()
+
+  const handleCheckout = () => {
+    if (items.length === 1) {
+      // Single item - go directly to checkout
+      closeCart()
+      router.push(`/checkout/${items[0].product.id}`)
+    } else if (items.length > 1) {
+      // Multiple items - for now go to first item checkout
+      // TODO: Implement cart checkout with multiple items
+      closeCart()
+      router.push(`/checkout/${items[0].product.id}`)
+    }
+  }
 
   return (
     <Sheet open={isOpen} onOpenChange={closeCart}>
@@ -151,7 +166,7 @@ export function CartDrawer() {
               </div>
 
               {/* Checkout button */}
-              <Button className="w-full" size="lg">
+              <Button className="w-full" size="lg" onClick={handleCheckout}>
                 Checkout — ${total.toFixed(2)}
               </Button>
               <Button

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Heart, Star, ShoppingCart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -146,9 +147,11 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         {/* Title */}
-        <h3 className="font-semibold text-foreground line-clamp-1 group-hover:text-primary transition-colors">
-          {product.title}
-        </h3>
+        <Link href={`/templates/${product.id}`}>
+          <h3 className="font-semibold text-foreground line-clamp-1 group-hover:text-primary transition-colors cursor-pointer">
+            {product.title}
+          </h3>
+        </Link>
 
         {/* Description */}
         <p className="mt-1 text-sm text-muted-foreground line-clamp-2">
