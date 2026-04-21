@@ -34,10 +34,22 @@ export default async function Home() {
           </Link>
           <div className="flex gap-6 items-center">
             <Link 
+              href="/collections" 
+              className="text-xs uppercase tracking-widest text-gray-400 hover:text-cyan-400 transition-colors"
+            >
+              Collections
+            </Link>
+            <Link 
               href="/woo-export" 
               className="text-xs uppercase tracking-widest text-gray-400 hover:text-cyan-400 transition-colors"
             >
               WooCommerce Export
+            </Link>
+            <Link 
+              href="/admin" 
+              className="text-xs uppercase tracking-widest text-gray-400 hover:text-orange-400 transition-colors"
+            >
+              Admin
             </Link>
           </div>
         </div>
