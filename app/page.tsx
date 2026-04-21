@@ -49,6 +49,12 @@ export default async function Home() {
               Shop
             </Link>
             <Link 
+              href="/furniture" 
+              className="text-xs uppercase tracking-widest text-gray-400 hover:text-amber-400 transition-colors"
+            >
+              Furniture
+            </Link>
+            <Link 
               href="/collections" 
               className="text-xs uppercase tracking-widest text-gray-400 hover:text-cyan-400 transition-colors"
             >
