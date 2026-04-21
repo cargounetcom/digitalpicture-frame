@@ -281,7 +281,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-15',
     compatibility: ['WordPress 6.4+', 'PHP 8.0+', 'WooCommerce 8.0+'],
     features: ['50+ Pre-built Demos', 'Elementor Page Builder', 'WooCommerce Ready', 'One-Click Import', 'Mega Menu', 'RTL Support', 'WPML Compatible', 'SEO Optimized'],
-    demoUrl: 'https://demo.thememarket.com/flavor',
+    demoUrl: 'https://wp.digitalpictureframe.shop/product/flavor-business/',
     seo: {
       metaTitle: 'Flavor Business Theme | Multi-Purpose WordPress | ThemeMarket',
       metaDescription: 'Flavor is a premium multi-purpose WordPress theme with 50+ demos, Elementor builder, and WooCommerce. Perfect for business, agency, and corporate sites.',
@@ -312,7 +312,7 @@ export const products: Product[] = [
     lastUpdate: '2024-02-01',
     compatibility: ['WordPress 6.4+', 'WooCommerce 8.2+', 'PHP 8.1+'],
     features: ['Ajax Product Filter', 'Quick View', 'Wishlist', 'Compare Products', '15+ Shop Layouts', 'Size Guide', 'Product Video', 'Mega Menu'],
-    demoUrl: 'https://demo.thememarket.com/shopmax',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'ShopMax WooCommerce Theme | Premium eCommerce | ThemeMarket',
       metaDescription: 'ShopMax is the ultimate WooCommerce theme with Ajax filtering, quick view, wishlist, and 15+ shop layouts. Build your online store today.',
@@ -342,7 +342,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-20',
     compatibility: ['WordPress 6.3+', 'PHP 7.4+'],
     features: ['Dark Mode', 'Project Showcase', 'Skills Section', 'Testimonials', 'Blog Ready', 'Contact Form', 'Social Links', 'SEO Optimized'],
-    demoUrl: 'https://demo.thememarket.com/developer-portfolio',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Developer Portfolio Pro | Free WordPress Theme | ThemeMarket',
       metaDescription: 'Free developer portfolio WordPress theme with dark mode, project showcase, and skills section. Perfect for developers and designers.',
@@ -371,7 +371,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-25',
     compatibility: ['WordPress 6.4+', 'PHP 8.0+', 'AMP Plugin'],
     features: ['AMP Support', 'Ad Management', 'Breaking News Ticker', 'Infinite Scroll', 'Video Posts', 'Weather Widget', 'Social Share', 'Schema Markup'],
-    demoUrl: 'https://demo.thememarket.com/newspress',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'NewsPress Magazine Theme | News & Blog WordPress | ThemeMarket',
       metaDescription: 'Fast magazine WordPress theme with AMP support, ad management, and SEO optimization. Perfect for news sites, blogs, and online magazines.',
@@ -402,7 +402,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-10',
     compatibility: ['WordPress 6.4+', 'PHP 8.0+', 'WooCommerce 8.0+'],
     features: ['Booking System', 'Team Profiles', 'Service Packages', 'Pricing Tables', 'Case Studies', 'Testimonials', 'Contact Forms', 'Google Maps'],
-    demoUrl: 'https://demo.thememarket.com/corporate-elite',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Corporate Elite Theme | Business WordPress | ThemeMarket',
       metaDescription: 'Professional corporate WordPress theme with booking system, team profiles, and service packages. Perfect for consulting and business websites.',
@@ -432,7 +432,7 @@ export const products: Product[] = [
     lastUpdate: '2024-02-05',
     compatibility: ['WordPress 6.4+', 'PHP 8.0+', 'Gutenberg'],
     features: ['Gutenberg Blocks', 'Newsletter Integration', 'Reading Progress', 'Reading Time', 'Social Sharing', 'Related Posts', 'Author Box', 'Schema Markup'],
-    demoUrl: 'https://demo.thememarket.com/blog-starter',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Blog Starter Kit | Minimal WordPress Theme | ThemeMarket',
       metaDescription: 'Minimal blog starter theme for WordPress with Gutenberg blocks, newsletter integration, and modular design. Perfect for bloggers.',
@@ -464,7 +464,7 @@ export const products: Product[] = [
     lastUpdate: '2024-02-01',
     compatibility: ['Shopify 2.0', 'Online Store 2.0'],
     features: ['Sections Everywhere', 'Predictive Search', 'Quick Add to Cart', 'Color Swatches', 'Size Charts', 'Product Video', 'Cross-Selling', 'Cart Upsells'],
-    demoUrl: 'https://demo.thememarket.com/dawn-pro',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Dawn Pro Shopify 2.0 Theme | Premium eCommerce | ThemeMarket',
       metaDescription: 'Dawn Pro is a premium Shopify 2.0 theme with sections everywhere, optimized checkout, and 95+ Lighthouse score. Built for conversions.',
@@ -495,7 +495,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-28',
     compatibility: ['Shopify 2.0', 'Instagram'],
     features: ['Lookbook Layouts', 'Instagram Shop', 'Quick View', 'Size Guide', 'Wishlist', 'Color Swatches', 'Model Info', 'Style With Section'],
-    demoUrl: 'https://demo.thememarket.com/luxe',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Luxe Fashion Shopify Theme | Boutique Store | ThemeMarket',
       metaDescription: 'Luxe is an elegant Shopify fashion theme with lookbook, Instagram shop, and advanced filtering. Perfect for clothing and boutique stores.',
@@ -525,7 +525,7 @@ export const products: Product[] = [
     lastUpdate: '2024-02-03',
     compatibility: ['Shopify 2.0', 'Recharge', 'Smile.io'],
     features: ['Product Bundles', 'Subscriptions', 'Reward Points', 'Ingredient Lists', 'Before/After Slider', 'Tutorial Videos', 'Shade Finder', 'Reviews'],
-    demoUrl: 'https://demo.thememarket.com/beauty',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Beauty Shopify Theme | Cosmetics & Skincare | ThemeMarket',
       metaDescription: 'Beauty Shopify theme for cosmetics and skincare brands. Product bundles, subscriptions, and reward points. Build your beauty empire.',
@@ -555,7 +555,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-15',
     compatibility: ['Shopify 2.0'],
     features: ['Quick View', 'Newsletter Popup', 'Currency Converter', 'Announcement Bar', 'Collection Filters', 'Related Products', 'Social Sharing', 'Trust Badges'],
-    demoUrl: 'https://demo.thememarket.com/minimal',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Minimal Free Shopify Theme | Starter Template | ThemeMarket',
       metaDescription: 'Free minimal Shopify starter theme for new stores and dropshipping. Clean design, essential features, fast loading. Start selling today.',
@@ -585,7 +585,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-22',
     compatibility: ['Shopify 2.0'],
     features: ['Mega Menu', 'Product Compare', 'Spec Tables', '360 Product View', 'Advanced Filters', 'Flash Sales', 'Brand Logos', 'Video Reviews'],
-    demoUrl: 'https://demo.thememarket.com/electronics',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Electronics Shopify Theme | Tech Store | ThemeMarket',
       metaDescription: 'Electronics Shopify theme with mega menu, product comparison, and spec tables. Perfect for tech stores, gadgets, and large catalogs.',
@@ -617,7 +617,7 @@ export const products: Product[] = [
     lastUpdate: '2024-02-01',
     compatibility: ['Bootstrap 5', 'All Modern Browsers', 'Node.js 18+'],
     features: ['Smooth Animations', 'Pricing Tables', 'Testimonials', 'Contact Form', 'Newsletter', 'FAQ Section', 'Video Modal', 'Sticky Header'],
-    demoUrl: 'https://demo.thememarket.com/startup-landing',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Startup Landing Page HTML | SaaS Template | ThemeMarket',
       metaDescription: 'Modern HTML5 startup landing page with animations, pricing tables, and contact forms. Perfect for SaaS, apps, and product launches.',
@@ -647,7 +647,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-18',
     compatibility: ['All Modern Browsers', 'Node.js 18+'],
     features: ['Dark/Light Mode', 'Skills Animation', 'GitHub Integration', 'Project Filters', 'Blog Section', 'Contact Form', 'Smooth Scroll', 'Preloader'],
-    demoUrl: 'https://demo.thememarket.com/developer-portfolio',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Developer Portfolio HTML | Programmer Template | ThemeMarket',
       metaDescription: 'Creative HTML portfolio for developers with GitHub integration, project showcase, and dark mode. Stand out from the crowd.',
@@ -677,7 +677,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-25',
     compatibility: ['All Modern Browsers', 'Tailwind CSS 3.4+'],
     features: ['Service Listings', 'Team Profiles', 'Case Studies', 'Client Logos', 'Testimonials', 'Contact Form', 'Blog Section', 'Responsive'],
-    demoUrl: 'https://demo.thememarket.com/agency-starter',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Agency Starter Kit | Free HTML Template | ThemeMarket',
       metaDescription: 'Free HTML agency template with services, team, and case studies. Built with Tailwind CSS. Perfect for agencies and freelancers.',
@@ -706,7 +706,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-12',
     compatibility: ['All Modern Browsers', 'Bootstrap 5'],
     features: ['Menu Builder', 'Reservation Form', 'Food Gallery', 'Google Maps', 'Opening Hours', 'Chef Profiles', 'Testimonials', 'Instagram Feed'],
-    demoUrl: 'https://demo.thememarket.com/restaurant',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Restaurant HTML Template | Cafe & Food | ThemeMarket',
       metaDescription: 'Beautiful restaurant HTML template with menu builder, reservations, and gallery. Perfect for restaurants, cafes, and food businesses.',
@@ -736,7 +736,7 @@ export const products: Product[] = [
     lastUpdate: '2024-02-02',
     compatibility: ['All Modern Browsers'],
     features: ['Fullscreen Gallery', 'Lightbox', 'Lazy Loading', 'Portfolio Filters', 'Client Proofing', 'File Upload', 'Before/After', 'EXIF Display'],
-    demoUrl: 'https://demo.thememarket.com/photography',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Photography Portfolio HTML | Gallery Template | ThemeMarket',
       metaDescription: 'Stunning photography portfolio HTML with fullscreen galleries, lightbox, and lazy loading. Perfect for photographers and artists.',
@@ -767,7 +767,7 @@ export const products: Product[] = [
     lastUpdate: '2024-02-04',
     compatibility: ['All Modern Browsers', 'Chart.js 4', 'Bootstrap 5'],
     features: ['50+ Components', 'Interactive Charts', 'Data Tables', 'Form Elements', 'Dark Mode', 'Notifications', 'User Management', 'Settings Pages'],
-    demoUrl: 'https://demo.thememarket.com/dashboard',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'SaaS Dashboard UI | Admin Template | ThemeMarket',
       metaDescription: 'Complete HTML dashboard template with 50+ components, charts, and dark mode. Perfect for SaaS admin panels and web apps.',
@@ -796,7 +796,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-20',
     compatibility: ['All Modern Browsers', 'GSAP'],
     features: ['Parallax Effects', 'Portfolio Slider', 'CSS Animations', 'Team Showcase', 'Service Cards', 'Video Background', 'Testimonials', 'Blog Grid'],
-    demoUrl: 'https://demo.thememarket.com/creative-agency',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Creative Agency HTML | Design Studio Template | ThemeMarket',
       metaDescription: 'Bold creative agency HTML template with parallax, animations, and portfolio slider. Perfect for design studios and marketing agencies.',
@@ -828,7 +828,7 @@ export const products: Product[] = [
     lastUpdate: '2024-02-01',
     compatibility: ['WordPress 6.4+', 'WooCommerce 8.2+'],
     features: ['Delivery Zones', 'Time Slots', 'Freshness Badges', 'Weight Pricing', 'Product Labels', 'Quick Reorder', 'Shopping Lists', 'Recipe Links'],
-    demoUrl: 'https://demo.thememarket.com/foodmart',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'FoodMart Grocery WooCommerce Theme | Food Delivery | ThemeMarket',
       metaDescription: 'WooCommerce grocery theme with delivery zones, time slots, and freshness badges. Perfect for supermarkets and food delivery stores.',
@@ -859,7 +859,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-28',
     compatibility: ['WordPress 6.4+', 'WooCommerce 8.2+', 'WCFM/Dokan'],
     features: ['Vendor Dashboards', 'Commission System', 'Vendor Verification', 'Store Pages', 'Vendor Reviews', 'Payout Reports', 'Product Import', 'Store Locator'],
-    demoUrl: 'https://demo.thememarket.com/flavor-shop',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Flavor Shop Pro | Multi-vendor Marketplace | ThemeMarket',
       metaDescription: 'WooCommerce multi-vendor marketplace theme with vendor dashboards and commission management. Build your own Amazon or Etsy.',
@@ -890,7 +890,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-15',
     compatibility: ['WordPress 6.4+', 'Elementor Pro'],
     features: ['Case Study Layout', 'Client Management', 'Project Timeline', 'Results Metrics', 'Filterable Grid', 'Before/After', 'Video Showcase', 'PDF Proposals'],
-    demoUrl: 'https://demo.thememarket.com/portfolio-plus',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Flavor Portfolio Plus | Case Study WordPress | ThemeMarket',
       metaDescription: 'Advanced WordPress portfolio theme with case study layouts and client management. Perfect for agencies and freelancers.',
@@ -921,7 +921,7 @@ export const products: Product[] = [
     lastUpdate: '2024-02-02',
     compatibility: ['Shopify 2.0', 'DoorDash', 'UberEats'],
     features: ['Menu Builder', 'Delivery Zones', 'Order Tracking', 'Table Reservations', 'Special Offers', 'Combo Deals', 'Allergen Info', 'Kitchen Display'],
-    demoUrl: 'https://demo.thememarket.com/food-delivery',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Flavor Food Delivery Shopify Theme | Restaurant | ThemeMarket',
       metaDescription: 'Shopify theme for restaurants and food delivery with menu builder and order tracking. Connect with DoorDash and UberEats.',
@@ -952,7 +952,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-22',
     compatibility: ['All Modern Browsers', 'Eventbrite'],
     features: ['Countdown Timer', 'Speaker Profiles', 'Schedule Timeline', 'Sponsor Logos', 'Ticket Booking', 'Venue Map', 'Photo Gallery', 'Newsletter'],
-    demoUrl: 'https://demo.thememarket.com/event-landing',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Flavor Event Landing | Conference HTML | ThemeMarket',
       metaDescription: 'HTML event landing page with countdown, speakers, and ticket booking. Perfect for conferences, webinars, and meetups.',
@@ -982,7 +982,7 @@ export const products: Product[] = [
     lastUpdate: '2024-01-30',
     compatibility: ['All Modern Browsers'],
     features: ['Device Mockups', 'Feature Icons', 'Screenshot Carousel', 'App Store Badges', 'Press Kit', 'Video Trailer', 'User Reviews', 'FAQ Section'],
-    demoUrl: 'https://demo.thememarket.com/app-showcase',
+    demoUrl: 'https://wp.digitalpictureframe.shop/shop/',
     seo: {
       metaTitle: 'Flavor App Showcase HTML | Mobile Landing | ThemeMarket',
       metaDescription: 'Mobile app showcase HTML template with device mockups, features, and download buttons. Perfect for app launches and startups.',
