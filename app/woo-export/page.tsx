@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Badge } from '@/components/ui/badge';
-import { Download, RefreshCw, ExternalLink, Package, DollarSign, Boxes } from 'lucide-react';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Download, RefreshCw, ExternalLink, Package, DollarSign, Boxes, Lock, LogOut } from 'lucide-react';
 
 interface ExportProduct {
   id: number;
@@ -37,10 +39,96 @@ interface ExportResponse {
   products: ExportProduct[];
 }
 
+function LoginForm({ onLogin }: { onLogin: () => void }) {
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/auth', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password }),
+      });
+
+      if (res.ok) {
+        onLogin();
+      } else {
+        const data = await res.json();
+        setError(data.error || 'Invalid password');
+      }
+    } catch {
+      setError('Authentication failed');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex items-center justify-center p-4 bg-background">
+      <Card className="w-full max-w-md">
+        <CardHeader className="text-center">
+          <div className="mx-auto w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+            <Lock className="h-6 w-6 text-primary" />
+          </div>
+          <CardTitle className="text-2xl">Admin Login</CardTitle>
+          <CardDescription>Enter your password to access the WooCommerce Export</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <form onSubmit={handleSubmit} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="password">Password</Label>
+              <Input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="Enter admin password"
+                required
+              />
+            </div>
+            {error && (
+              <p className="text-sm text-destructive">{error}</p>
+            )}
+            <Button type="submit" className="w-full" disabled={loading}>
+              {loading ? 'Authenticating...' : 'Login'}
+            </Button>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
 export default function WooExportPage() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
   const [data, setData] = useState<ExportResponse | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  const checkAuth = async () => {
+    try {
+      const res = await fetch('/api/auth');
+      const data = await res.json();
+      setIsAuthenticated(data.authenticated);
+    } catch {
+      setIsAuthenticated(false);
+    }
+  };
+
+  const handleLogout = async () => {
+    await fetch('/api/auth', { method: 'DELETE' });
+    setIsAuthenticated(false);
+  };
 
   const fetchProducts = async () => {
     setLoading(true);
@@ -92,22 +180,42 @@ export default function WooExportPage() {
     }
   };
 
+  // Show loading while checking auth
+  if (isAuthenticated === null) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <div className="text-muted-foreground">Loading...</div>
+      </div>
+    );
+  }
+
+  // Show login form if not authenticated
+  if (!isAuthenticated) {
+    return <LoginForm onLogin={() => setIsAuthenticated(true)} />;
+  }
+
   return (
     <div className="container mx-auto py-8 px-4">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">WooCommerce Product Export</h1>
-        <p className="text-muted-foreground">
-          Export products from your WordPress shop at{' '}
-          <a 
-            href={process.env.NEXT_PUBLIC_WP_URL} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="text-primary hover:underline inline-flex items-center gap-1"
-          >
-            wp.digitalpictureframe.shop
-            <ExternalLink className="h-3 w-3" />
-          </a>
-        </p>
+      <div className="mb-8 flex items-start justify-between">
+        <div>
+          <h1 className="text-3xl font-bold mb-2">WooCommerce Product Export</h1>
+          <p className="text-muted-foreground">
+            Export products from your WordPress shop at{' '}
+            <a 
+              href="https://wp.digitalpictureframe.shop" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-primary hover:underline inline-flex items-center gap-1"
+            >
+              wp.digitalpictureframe.shop
+              <ExternalLink className="h-3 w-3" />
+            </a>
+          </p>
+        </div>
+        <Button variant="outline" onClick={handleLogout}>
+          <LogOut className="mr-2 h-4 w-4" />
+          Logout
+        </Button>
       </div>
 
       <div className="flex flex-wrap gap-3 mb-6">
