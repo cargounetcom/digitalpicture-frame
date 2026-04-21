@@ -1,11 +1,7 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Playfair_Display, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
-
-import './globals.css'
-import type { Metadata } from 'next'
-import { Playfair_Display, Inter } from 'next/font/google'
 
 // Nordic minimalist font pairing
 const playfair = Playfair_Display({ 
@@ -40,19 +36,6 @@ export default function RootLayout({
             <li className="hover:text-nordic-text transition-colors cursor-pointer">Cart (0)</li>
           </ul>
         </nav>
-        {children}
-      </body>
-    </html>
-  )
-}
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="en">
-      <body className="font-sans antialiased">
         {children}
         <Analytics />
       </body>
